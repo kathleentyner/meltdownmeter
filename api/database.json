@@ -32,13 +32,6 @@
       "description": "aggitated at night. unable to calm down. pacing, barking, panting",
       "level": 6,
       "id": 2
-    },
-    {
-      "userId": 2,
-      "date": "2023-05-03",
-      "description": "Test 5",
-      "level": 3,
-      "id": 4
     }
   ],
   "endDays": [

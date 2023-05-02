@@ -1,7 +1,7 @@
 //get all the reactions
 export const getReactions = () => {
-    return fetch(`http://localhost:8088/reactions`
-    .then(response => response.json()))
+    return fetch(`http://localhost:8088/reactions`)
+    .then(response => response.json())
     }
 
 
