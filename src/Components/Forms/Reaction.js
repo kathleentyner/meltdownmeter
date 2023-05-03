@@ -9,10 +9,28 @@ export const ReactionForm = () => {
     const [value, setValue] = useState(0)
     const [reaction, update] = useState({
         date: "", 
-        description: ""
-    })
-console.log(value)
+        description: "",
+        end: false,
+        notes: "",
+        am: false, 
+        pm: false, 
+        seizure: false
 
+    })
+   
+   
+   
+    const Checkbox = ({ label, value, onChange }) => {
+        return (
+          <label>
+            <input type="checkbox" checked={value} onChange={onChange} />
+            {label}
+          </label>
+        );
+      };
+
+
+    
 const navigate = useNavigate()
     const activeUser = localStorage.getItem("meltdown_user")
     const meltdownUser = JSON.parse(activeUser)//signed in user
@@ -25,9 +43,17 @@ const navigate = useNavigate()
         userId: meltdownUser.id,
         date: reaction.date,
         description: reaction.description,
-        level: value
+        level: value,
+        end: reaction.end,
+        notes: "",
+        am: reaction.am, 
+        pm: reaction.pm, 
+        seizure: reaction.seizure
 
     }
+
+
+
 
  sendReaction(reactionToAPI)
     .then(( )=>  {
@@ -42,7 +68,7 @@ const navigate = useNavigate()
             <h2 className="title">Record A Reaction</h2>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="Date">date:</label>
+                    <label htmlFor="Date">Date:</label>
                     <input
                         required autoFocus
                         type="date"
@@ -82,11 +108,83 @@ const navigate = useNavigate()
                      setValue ={setValue}/> 
                         </div>
                         </fieldset>
+            
+            <div className="checkboxes">
+                 <Checkbox
+                    label="End the Day??"
+                    value={reaction.end}
+                    onChange={ 
+                        () => {
+                        const copy = {...reaction} 
+                        copy.end= !reaction.end
+                        update(copy)
+                    } }/></div>
+            {
+                reaction.end 
+              ? 
+              <>  <div className="form-group">
+                    <label htmlFor="description">How Was Hoagie's Day?: </label>
+                    <input
+                        required autoFocus
+                        type="text"
+                        className="form-control"
+                        value={reaction.notes}
+                        onChange={ 
+                            (event) => {
+                            const copy = {...reaction} 
+                            copy.notes = event.target.value 
+                            update(copy)
+                        } 
+                    }/>
+                 </div> 
+                 <div className="checkboxes">
+                 <Checkbox
+                    label="AM Meds?"
+                    value={reaction.am}
+                    onChange={ 
+                        () => {
+                        const copy = {...reaction} 
+                        copy.am = !reaction.am
+                        update(copy)
+                    } }/>
+                    
+                    <Checkbox
+                    label="PM Meds?"
+                    value={reaction.pm}
+                    onChange={ 
+                        () => {
+                        const copy = {...reaction} 
+                        copy.pm = !reaction.pm
+                        update(copy)
+                    } }/>
+
+                    <Checkbox
+                    label="Seizure?"
+                    value={reaction.seizure}
+                    onChange={ 
+                        () => {
+                        const copy = {...reaction} 
+                        copy.seizure = !reaction.seizure
+                        update(copy)
+                    } }/>
+                    
+                </div> 
+
             <button 
             onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
                 className="submit">
                 Submit
             </button>
+</>
+:
+<button 
+onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
+    className="submit">
+    Submit
+</button>
+
+                }    
+
         </form>
 )
 }

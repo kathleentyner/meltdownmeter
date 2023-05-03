@@ -2,20 +2,18 @@
 
 import { useEffect, useState, } from "react"
 import { useNavigate, Link } from "react-router-dom"
-import {getReactions} from "../ApiManager"
-import Slider from "../Slider/Slider"
+import { getReactions} from "../ApiManager"
 
-
-//list out all the products
+//list out all the reaction entries
 export const ReactionList = (reaction) => {
-   const [value, setValue] = useState()
    const [ reactions, setReactions ] = useState([])
+   const [ day, setDay] = useState([])
     //const [filteredTasks, setFiltered] = useState([])
     const activeUser = localStorage.getItem("meltdown_user")
     const meltdownUser = JSON.parse(activeUser)//signed in user
     const navigate = useNavigate()
     
-    //get the tasks from the API
+    //get all the reactions from the API
     useEffect(
       () => {
          getReactions()
@@ -26,7 +24,7 @@ export const ReactionList = (reaction) => {
       []
   )    
 
-//delete
+//delete a reaction
 const deleteReaction = (id) => {
   return fetch(`http://localhost:8088/reactions/${id}`, {
        method: "DELETE"
@@ -39,8 +37,9 @@ const deleteReaction = (id) => {
         })
         })
        }
-   
- 
+
+
+
     return <>
     <article className="reactions">
     <h1>Hoagie's Days</h1>
@@ -50,15 +49,14 @@ const deleteReaction = (id) => {
       reactions.map(
           (reaction) => {
      return <section className="reactionlist" key={reaction.id}>
-        <header>
+        <header>Date: 
       <Link to={`/reaction/${reaction.id}/edit`}>{reaction.date}</Link></header>
-           <div>description: {reaction.description}</div>
-          <div className="form-group">
-                    <label htmlFor="level">How Bad Was It?</label>
-                      
-                    <Slider value = {value}
-                     setValue ={setValue}/> 
-                        </div>
+           <div>Description: {reaction.description}</div>
+           <div>Level: {reaction.level}</div>
+           <div>Notes: {reaction.notes}</div>
+           <div> AM Meds? {reaction.am}</div>
+           <div> PM Meds? {reaction.pm}</div>
+           <div> Seizure? {reaction.seizure}</div>
                         
       <button onClick={() => deleteReaction(reaction.id)}
       className="delete_Button">Delete</button>

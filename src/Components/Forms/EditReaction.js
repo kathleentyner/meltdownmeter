@@ -6,7 +6,7 @@ import "./form.css"
 
 export const EditReaction = () => {
    const [value, setValue] = useState()
-  const [reaction, setReaction] = useState({date: "", description: ""})
+  const [reaction, update] = useState({date: "", description: "", end:"", date: "", description: "", am: "", pm: "", seizure:""})
     const { reactionId } = useParams()
     const navigate = useNavigate()
 
@@ -14,7 +14,7 @@ export const EditReaction = () => {
       fetch(`http://localhost:8088/reactions/${reactionId}`) //route param
           .then(response => response.json())
           .then((data) => {
-              setReaction(data) 
+              update(data) 
           })
   }, [reactionId]) //watch state - param
   const handleSaveButtonClick = (event) => {
@@ -31,7 +31,17 @@ export const EditReaction = () => {
         .then(() => {
             navigate("/") //sends user back to ? need to determine
         })
+        
 }
+const Checkbox = ({ label, value, onChange }) => {
+  return (
+    <label>
+      <input type="checkbox" checked={value} onChange={onChange} />
+      {label}
+    </label>
+  );
+};
+
 
 
 
@@ -50,7 +60,7 @@ export const EditReaction = () => {
                             (event) => {
                             const copy = {...reaction} 
                             copy.date = event.target.value 
-                            setReaction(copy)
+                            update(copy)
                         } 
                     }/>
                  </div>
@@ -69,7 +79,7 @@ export const EditReaction = () => {
               onChange={(event) => {
                 const copy = {...reaction}
                 copy.description = event.target.value
-                setReaction(copy)
+                update(copy)
               }}
             />
           </div>
@@ -83,7 +93,64 @@ export const EditReaction = () => {
                      setValue ={setValue}/> 
                         </div>
                         </fieldset>
+                        <div className="checkboxes">
+                 <Checkbox
+                    label="End the Day??"
+                    value={reaction.end}
+                    onChange={ 
+                        () => {
+                        const copy = {...reaction} 
+                        copy.end= !reaction.end
+                        update(copy)
+                    } }/></div>
+    
+                <div className="form-group">
+                    <label htmlFor="description">How Was Hoagie's Day?: </label>
+                    <input
+                        required autoFocus
+                        type="text"
+                        className="form-control"
+                        value={reaction.notes}
+                        onChange={ 
+                            (event) => {
+                            const copy = {...reaction} 
+                            copy.notes = event.target.value 
+                            update(copy)
+                        } 
+                    }/>
+                 </div> 
+                 <div className="checkboxes">
+                 <Checkbox
+                    label="AM Meds?"
+                    value={reaction.am}
+                    onChange={ 
+                        () => {
+                        const copy = {...reaction} 
+                        copy.am = !reaction.am
+                        update(copy)
+                    } }/>
+                    
+                    <Checkbox
+                    label="PM Meds?"
+                    value={reaction.pm}
+                    onChange={ 
+                        () => {
+                        const copy = {...reaction} 
+                        copy.pm = !reaction.pm
+                        update(copy)
+                    } }/>
 
+                    <Checkbox
+                    label="Seizure?"
+                    value={reaction.seizure}
+                    onChange={ 
+                        () => {
+                        const copy = {...reaction} 
+                        copy.seizure = !reaction.seizure
+                        update(copy)
+                    } }/>
+                    
+                </div>
         <button
           onClick={(evt) => handleSaveButtonClick(evt)}
           className="btn btn-primary"

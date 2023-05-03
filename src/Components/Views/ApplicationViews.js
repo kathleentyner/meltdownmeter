@@ -1,6 +1,5 @@
 import { Route, Routes, Outlet } from "react-router-dom"
 import { ReactionForm } from "../Forms/Reaction"
-import { EndDayForm } from "../Forms/EndDay" 
 import { EditReaction } from "../Forms/EditReaction"
 import { ReactionList } from "../DailyReport/AllDays"
 export const ApplicationViews = () => {
@@ -15,8 +14,7 @@ export const ApplicationViews = () => {
 	</>
 		}>
 	<Route path="reaction" element={ <ReactionForm /> } />
-	<Route path="endDay" element={ <EndDayForm /> } />
-	<Route path="editreaction" element={ <EditReaction/> } />
+	<Route path="reaction/:reactionId/edit" element={ <EditReaction/> } />
 	<Route path="history" element={<ReactionList/>} />
 		</Route>
 	</Routes>
