@@ -3,12 +3,12 @@ export const getReactions = () => {
     return fetch(`http://localhost:8088/reactions`)
     .then(response => response.json())
     }
-/*get all the end day entries
-export const getEndDay = () => {
-    return fetch(`http://localhost:8088/endDays`)
-    .then(response => response.json() )
+// sort
+
+export const reactionsSortedByDate = () => {
+    return fetch(`http://localhost:8088/reactions?_sort=date&_order=asc`)
+    .then(response => response.json())
 }
-*/
 
 
 // Submit a single reaction report to the database

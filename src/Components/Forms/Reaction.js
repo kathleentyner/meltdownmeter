@@ -20,17 +20,14 @@ export const ReactionForm = () => {
    
    
    
-    const Checkbox = ({ label, value, onChange }) => {
+    const Checkbox = ({ label, value, onChange}) => {
         return (
           <label>
-            <input type="checkbox" checked={value} onChange={onChange} />
+            <input type="checkbox" checked={value} onChange={onChange}/>
             {label}
           </label>
-        );
-      };
-
-
-    
+        )
+      }
 const navigate = useNavigate()
     const activeUser = localStorage.getItem("meltdown_user")
     const meltdownUser = JSON.parse(activeUser)//signed in user
@@ -104,7 +101,8 @@ const navigate = useNavigate()
                 <div className="form-group">
                     <label htmlFor="level">How Bad Was It?</label>
                       
-                    <Slider value = {value}
+                    <Slider 
+                    value = {value}
                      setValue ={setValue}/> 
                         </div>
                         </fieldset>
@@ -116,9 +114,10 @@ const navigate = useNavigate()
                     onChange={ 
                         () => {
                         const copy = {...reaction} 
-                        copy.end= !reaction.end
+                        copy.end = !reaction.end
                         update(copy)
-                    } }/></div>
+                    } }/>                
+                      </div>
             {
                 reaction.end 
               ? 
