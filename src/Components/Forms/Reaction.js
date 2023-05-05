@@ -1,23 +1,27 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { sendReaction } from "../ApiManager"
+import {sendDay} from "../ApiManager"
 import Slider from "../Slider/Slider"
 import "./form.css"
+
 
 export const ReactionForm = () => {
 
     const [value, setValue] = useState(0)
-    const [reaction, update] = useState({
-        date: "", 
-        description: "",
-        end: false,
+    const [day, updateDay] = useState({
+    
+        date: "",
         notes: "",
         am: false, 
         pm: false, 
         seizure: false
-
     })
-   
+    const [reaction, update] = useState({
+        date: "", 
+        description: "",   
+    })
+   const [checked, setChecked ] = useState(false)
    
    
     const Checkbox = ({ label, value, onChange}) => {
@@ -40,24 +44,32 @@ const navigate = useNavigate()
         userId: meltdownUser.id,
         date: reaction.date,
         description: reaction.description,
-        level: value,
-        end: reaction.end,
-        notes: "",
-        am: reaction.am, 
-        pm: reaction.pm, 
-        seizure: reaction.seizure
+        level: value
+   
 
     }
-
+const dayToAPI = {
+    end: day.end,
+    date: day.date,
+    notes: "",
+    am: day.am, 
+    pm: day.pm, 
+    seizure: day.seizure
+}
 
 
 
  sendReaction(reactionToAPI)
     .then(( )=>  {
-        navigate("/") 
+        navigate("/history") 
 
    
 })
+if (checked === true){
+sendDay(dayToAPI)
+.then(() => {
+    navigate("/history")
+})}
     }
 
     return (
@@ -110,79 +122,87 @@ const navigate = useNavigate()
             <div className="checkboxes">
                  <Checkbox
                     label="End the Day??"
-                    value={reaction.end}
                     onChange={ 
                         () => {
-                        const copy = {...reaction} 
-                        copy.end = !reaction.end
-                        update(copy)
+                     setChecked(true)  
                     } }/>                
                       </div>
-            {
-                reaction.end 
-              ? 
-              <>  <div className="form-group">
+
+                    {checked ?
+
+           <> <div className="form-group">
                     <label htmlFor="description">How Was Hoagie's Day?: </label>
+                    <fieldset>
+                <div className="form-group">
+                    <label htmlFor="Date">Date:</label>
+                    <input
+                        required autoFocus
+                        type="date"
+                        className="form-control"
+                        value={day.date}
+                        onChange={ 
+                            (event) => {
+                            const copy = {...day} 
+                            copy.date= event.target.value 
+                            updateDay(copy)
+                        } 
+                    }/>
+                </div>
+            </fieldset>
                     <input
                         required autoFocus
                         type="text"
                         className="form-control"
-                        value={reaction.notes}
+                        value={day.notes}
                         onChange={ 
                             (event) => {
-                            const copy = {...reaction} 
+                            const copy = {...day} 
                             copy.notes = event.target.value 
-                            update(copy)
+                            updateDay(copy)
                         } 
                     }/>
                  </div> 
                  <div className="checkboxes">
                  <Checkbox
                     label="AM Meds?"
-                    value={reaction.am}
+                    value={day.am}
                     onChange={ 
                         () => {
-                        const copy = {...reaction} 
-                        copy.am = !reaction.am
-                        update(copy)
+                        const copy = {...day} 
+                        copy.am = !day.am
+                        updateDay(copy)
                     } }/>
                     
                     <Checkbox
                     label="PM Meds?"
-                    value={reaction.pm}
+                    value={day.pm}
                     onChange={ 
                         () => {
-                        const copy = {...reaction} 
-                        copy.pm = !reaction.pm
-                        update(copy)
+                        const copy = {...day} 
+                        copy.pm = !day.pm
+                        updateDay(copy)
                     } }/>
 
                     <Checkbox
                     label="Seizure?"
-                    value={reaction.seizure}
+                    value={day.seizure}
                     onChange={ 
                         () => {
-                        const copy = {...reaction} 
-                        copy.seizure = !reaction.seizure
-                        update(copy)
+                        const copy = {...day} 
+                        copy.seizure = !day.seizure
+                        updateDay(copy)
                     } }/>
                     
-                </div> 
+                </div> </> : "" 
+                }
 
             <button 
             onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
                 className="submit">
                 Submit
             </button>
-</>
-:
-<button 
-onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
-    className="submit">
-    Submit
-</button>
 
-                }    
+   
 
         </form>
 )

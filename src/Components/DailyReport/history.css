@@ -1,18 +1,25 @@
-.reactionform {
-    background-color: whitesmoke
+
   
-  }
+  .reactionlist{
 
+    font-size: large;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    width:25%
+   }
 
- .newreaction{
-  background-color: whitesmoke;
-  font-size: large;
-  display: flex;
-  flex-direction: column
- }
- 
+   
+   .daylist{
+
+    font-size: large;
+    display: flex;
+    flex-direction: column;
+    padding: 25px
+   }
+
   .reactions {
-    background-color: whitesmoke;
+
     font-size: large;
 
 
@@ -22,8 +29,7 @@
     flex-direction: row;
   }
 .reactionheader{
-    background-color: whitesmoke;
-    text-align: left;
+
     display: flex;
     flex-direction: column;
     padding: 10px;
@@ -34,7 +40,7 @@
 
  
   .field {
-      font-size: medium;
+      font-size: large;
       color: black ;
   }
  input:checked {
@@ -43,36 +49,19 @@
   
   }
   .delete_Button {
-    max-width: 100px;
-    margin-left: 50px;
+    max-width: 75px;
+    margin-left: 75px;
+    margin-top: 10px;
   }
-  
-  
-
-  .submit:hover {background-color: #37b678}
-  
-  .submit:active {
-    background-color: #025d31;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-  }
- .newReaction Button {
+  .new{
      
-    background-color: #509be5;
+    background-color: cornflowerblue;
     font-size: 14px;
     color: white;
     text-align: center;  
     transition-duration: 0.4s;
     border-radius: 8px;
     padding: 10px;
-    margin: 10px;
+    margin: 50px;
     max-width: 150px;
- 
-}
-.newReaction:hover {background-color: #0a5bac}
-
-.newReaction:active {
-  background-color: #01274d;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-}
+  }

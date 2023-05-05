@@ -13,11 +13,60 @@
   ],
   "reactions": [
     {
-      "userId": 1,
-      "date": "2023-04-18",
-      "description": "upset during car ride. snapped at birdie",
+      "userId": 2,
+      "date": "2023-05-01",
+      "description": "Saw multiple dogs on walk",
+      "level": 2,
+      "id": 11
+    },
+    {
+      "userId": 2,
+      "date": "2023-05-01",
+      "description": "nail trim at the vet. vet was unable to trim nails hoagie was too  upset. ",
+      "level": 10,
+      "id": 12
+    },
+    {
+      "userId": 2,
+      "date": "2023-05-02",
+      "description": "screaming in the car on the way to a walk. redirected on Birdie. ",
       "level": 7,
-      "end": false,
+      "id": 13
+    },
+    {
+      "userId": 2,
+      "date": "2023-05-02",
+      "description": "saw a dog in the distance. whining and leash pulling ",
+      "level": 2,
+      "id": 14
+    },
+    {
+      "userId": 2,
+      "date": "2023-05-03",
+      "description": "aggitated in the car on the way to a walk. ",
+      "level": 6,
+      "id": 15
+    },
+    {
+      "userId": 2,
+      "date": "2023-04-30",
+      "description": "Went to tractor supply and saw his friends. was able to hold a sit but was very vocal. ",
+      "level": 1,
+      "id": 16
+    },
+    {
+      "userId": 2,
+      "date": "2023-04-30",
+      "description": "UPS delivery. redirected on birdie. took a long time to calm down.",
+      "level": 8,
+      "id": 17
+    }
+  ],
+  "days": [
+   
+    {
+      "end": true,
+      "date": "",
       "notes": "",
       "am": false,
       "pm": false,
@@ -25,35 +74,17 @@
       "id": 3
     },
     {
-      "userId": 1,
-      "date": "2023-05-01",
-      "description": "saw another dog on a walk. was able to move away and he calmed down quickly",
-      "level": 4,
-      "end": false,
+      "end": true,
+      "date": "",
       "notes": "",
-      "am": false,
-      "pm": false,
+      "am": true,
+      "pm": true,
       "seizure": false,
-      "id": 1
+      "id": 4
     },
     {
-      "userId": 2,
-      "date": "2023-04-30",
-      "description": "aggitated at night. unable to calm down. pacing, barking, panting",
-      "level": 6,
       "end": false,
-      "notes": "we noticed post-ictal behavior around 8:30. unable to settle and sleep until midnight",
-      "am": false,
-      "pm": false,
-      "seizure": false,
-      "id": 2
-    },
-    {
-      "userId": 2,
-      "date": "2023-05-04",
-      "description": "person walking down the road",
-      "level": 2,
-      "end": false,
+      "date": "",
       "notes": "",
       "am": false,
       "pm": false,
@@ -61,35 +92,26 @@
       "id": 5
     },
     {
-      "userId": 2,
-      "date": "2023-05-04",
-      "description": "UPS delivery, displaced agression towards birdie",
-      "level": 6,
+      "end": true,
+      "date": "2023-05-01",
+      "notes": "",
+      "am": true,
+      "pm": true,
+      "seizure": true,
+      "id": 6
+    },
+    {
       "end": false,
+      "date": "",
       "notes": "",
       "am": false,
       "pm": false,
       "seizure": false,
-      "id": 6
-    },
-    {
-      "userId": 2,
-      "date": "2023-05-04",
-      "description": "ran into multiple dogs on walk. whining and whimpering ",
-      "level": 3,
-      "end": true,
-      "notes": "lots of triggers, but was able to calm down quickly",
-      "am": true,
-      "pm": true,
-      "seizure": false,
       "id": 7
     },
     {
-      "userId": 2,
-      "date": "2023-04-18",
-      "description": "ups delivery barking",
-      "level": 2,
       "end": true,
+      "date": "2023-05-02",
       "notes": "",
       "am": false,
       "pm": false,
@@ -97,11 +119,8 @@
       "id": 8
     },
     {
-      "userId": 2,
-      "date": "2023-05-01",
-      "description": "pacing at night ; getting into garbage; panting",
-      "level": 9,
       "end": true,
+      "date": "2023-05-03",
       "notes": "",
       "am": true,
       "pm": true,
@@ -109,26 +128,20 @@
       "id": 9
     },
     {
-      "userId": 2,
-      "date": "2023-04-30",
-      "description": "neighbors came to door. displaced agression towards birdie. Hard to calm down.",
-      "level": 5,
-      "end": true,
-      "notes": "normal hoagie day.",
-      "am": true,
-      "pm": true,
+      "end": false,
+      "date": "",
+      "notes": "",
+      "am": false,
+      "pm": false,
       "seizure": false,
       "id": 10
     },
     {
-      "userId": 2,
-      "date": "2023-05-04",
-      "description": "barked",
-      "level": 5,
       "end": false,
+      "date": "2023-04-30",
       "notes": "",
       "am": false,
-      "pm": false,
+      "pm": true,
       "seizure": false,
       "id": 11
     }
