@@ -23,7 +23,28 @@ export const ReactionList = (reaction) => {
       []
   )    
 
+  const DayList = () => {
+   historyArray = []
+   if(reaction.date === DayList.reaction){
+      jsxArray.push(
+      <div className="event--list" key={`events--${i}`}>
+          <h3>{getMonthName(i)} ({eventCount})</h3>
+          <div>{createEventList(monthlyEvents)}</div>
+      </div>
+      )
+  }
+}
 
+  }
+  if(eventCount !== 0){
+   jsxArray.push(
+   <div className="event--list" key={`events--${i}`}>
+       <h3>{getMonthName(i)} ({eventCount})</h3>
+       <div>{createEventList(monthlyEvents)}</div>
+   </div>
+   )
+}
+}
 
 //delete a reaction
 const deleteReaction = (id) => {
