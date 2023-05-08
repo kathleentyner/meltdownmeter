@@ -4,21 +4,18 @@
   }
 
   .reactionList{
-    background-color: rgb(240, 246, 255);;
     font-size: large;
     display: flex;
     flex-direction: column;
     padding: 50px
    }
  .newreaction{
-  background-color: rgb(240, 246, 255);;
   font-size: large;
   display: flex;
   flex-direction: column
  }
  
   .reactions {
-    background-color: rgb(240, 246, 255);;
     font-size: large;
 
 
@@ -28,7 +25,6 @@
     flex-direction: row;
   }
 .reactionheader{
-    background-color: rgb(240, 246, 255);;
     text-align: left;
     display: flex;
     flex-direction: column;

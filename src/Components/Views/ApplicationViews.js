@@ -2,7 +2,7 @@ import { Route, Routes, Outlet } from "react-router-dom"
 import { ReactionForm } from "../Forms/Reaction"
 import { EditReaction } from "../Forms/EditReaction"
 import { ReactionList } from "../DailyReport/AllDays"
-import '@fontsource/roboto/500.css'
+import {SimpleBottomNavigation} from '../Nav/BottomNav';
 
 export const ApplicationViews = () => {
 	return ( 
@@ -18,6 +18,7 @@ export const ApplicationViews = () => {
 	<Route path="reaction" element={ <ReactionForm /> } />
 	<Route path="reaction/:reactionId/edit" element={ <EditReaction/> } />
 	<Route path="history" element={<ReactionList/>} />
+	
 		</Route>
 	</Routes>
 	)

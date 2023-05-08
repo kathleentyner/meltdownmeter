@@ -65,10 +65,18 @@ const deleteReaction = (id) => {
         })
         })
        }
-
+  if(eventCount !== 0){
+                jsxArray.push(
+                <div className="event--list" key={`events--${i}`}>
+                    <h3>{getMonthName(i)} ({eventCount})</h3>
+                    <div>{createEventList(monthlyEvents)}</div>
+                </div>
+                )
+            }
+      
 
        return <>
-         <div style={{backgroundImage: `url("https://flic.kr/p/2oyeSXX")`}}>
+      
            <article className="reactions">
              <h1>History</h1>
              <button className="new" onClick={() => navigate("/reaction")}>New Reaction</button>
@@ -97,4 +105,4 @@ const deleteReaction = (id) => {
                   <div> Seizure? {day.seizure ? "Yes" : "No"}</div>
                   <button onClick={() => deleteDay(day.id)} className="delete_Button">Delete</button>          
     </section> }})}  */}
-     </article></div> </>}
+     </article></>}
