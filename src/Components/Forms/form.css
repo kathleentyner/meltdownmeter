@@ -1,28 +1,39 @@
-.reactionform {
-    background-color: whitesmoke
+input {
+  margin: 10px;
+  font-size: large;
+  
   
   }
+.reactionform {
+  overflow: visible;
+  padding-left: 2em}
 
 
+  .reactionList{
+    font-size: large;
+    display: flex;
+    flex-direction: column;
+    padding: 50px
+   }
  .newreaction{
-  background-color: whitesmoke;
   font-size: large;
   display: flex;
   flex-direction: column
  }
  
   .reactions {
-    background-color: whitesmoke;
     font-size: large;
 
 
   }
+
   .checkboxes {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+
+ 
   }
 .reactionheader{
-    background-color: whitesmoke;
     text-align: left;
     display: flex;
     flex-direction: column;
@@ -56,16 +67,16 @@
     box-shadow: 0 5px #666;
     transform: translateY(4px);
   }
- .new Button {
+ .new{
      
-    background-color: #509be5;
+    background-color: cornflowerblue;
     font-size: 14px;
     color: white;
     text-align: center;  
     transition-duration: 0.4s;
     border-radius: 8px;
-    padding: 10px;
-    margin: 10px;
+    padding: 50px;
+    margin: 50px;
     max-width: 150px;
  
 }

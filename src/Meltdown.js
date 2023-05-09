@@ -17,6 +17,7 @@ export const Meltdown = () => {
 				<>
           <NavBar/>
           <ApplicationViews/>
+
         </>
 			</Authorized>
 

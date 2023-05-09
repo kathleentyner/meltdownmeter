@@ -1,20 +1,23 @@
 .App {
     font-family: sans-serif;
-    text-align: center;
+    text-align: left;
   }
   
   .horizontal-slider {
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
     margin: auto;
+    
   }
   
   .example-thumb {
     cursor: pointer;
     position: absolute;
     z-index: 100;
-    background: #ffffff;
-    border: 5px solid #3774ff;
+    background-image: url('../Images/face.png');
+    background-size: 75px;
+    background-repeat: no-repeat;
+    background-position: left;
     border-radius: 100%;
     display: block;
     box-shadow: 0 0 2px 0 rgb(0 0 0 / 44%);
@@ -34,20 +37,20 @@
   }
   
   .horizontal-slider .example-track {
-    top: 20px;
-    height: 4px;
+    top:50px;
+    height: 6px;
   }
   
- /* .horizontal-slider .example-thumb {
-    top: 12px;
-    width: 10px;
+ .horizontal-slider .example-thumb {
+    top: 20px;
+    width: 60px;
     outline: none;
-    height: 10px;
+    height: 60px;
     line-height: 38px;
-  } */
+  } 
   .example-mark {
-    width: 8px;
-    height: 8px;
+    width: 15px;
+    height: 15px;
     border: 2px solid rgb(0, 0, 0);
     background-color: rgb(255, 255, 255);
     cursor: pointer;

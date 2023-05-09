@@ -2,11 +2,16 @@ import { useState, useEffect } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import Slider from "../Slider/Slider"
 import "./form.css"
-
+import CssBaseline from '@mui/material/CssBaseline';
+import Stack from '@mui/material/Stack';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 export const EditReaction = () => {
    const [value, setValue] = useState()
-  const [reaction, update] = useState({date: "", description: "", end:"", date: "", description: "", am: "", pm: "", seizure:""})
+  const [reaction, update] = useState({date: "", description: "", notes: "",  am: "", pm: "", seizure:""})
     const { reactionId } = useParams()
     const navigate = useNavigate()
 
@@ -43,9 +48,42 @@ const Checkbox = ({ label, value, onChange }) => {
 };
 
 
+const theme = createTheme();
 
+return ( <>
+  <ThemeProvider theme={theme}>
+    <CssBaseline />
 
-    return (
+      <Box
+        sx={{
+          bgcolor: 'background.paper',
+          pt: 8,
+          pb: 6,
+        }}
+      >
+        <Container maxWidth="lg">
+          <Typography
+            component="h1"
+            variant="h2"
+            align="center"
+            color="text.primary"
+            gutterBottom
+          >
+           How Was Hoagie's Day?
+          </Typography>
+          <Typography variant="h5" align="center" color="text.secondary" paragraph>
+          Record Hoagie's Big Feelings to Better Support His Wellbeing
+          </Typography>
+          <Stack
+            sx={{ pt: 4 }}
+            direction="row"
+            spacing={2}
+            justifyContent="center"
+          >
+          </Stack>
+        </Container>
+      </Box>         
+        </ThemeProvider>    
       <form className="reactionedit">
         <h2 className="edittitle">Edit Reaction</h2>
         <fieldset>
@@ -69,7 +107,7 @@ const Checkbox = ({ label, value, onChange }) => {
         
         <fieldset>
           <div className="form-group">
-            <label htmlFor="description">How Bad Was It?: </label>
+            <label htmlFor="description">What Caused Hoagie To Meltdown: </label>
             <input
               required
               autoFocus
@@ -87,38 +125,13 @@ const Checkbox = ({ label, value, onChange }) => {
        
         <fieldset>
                 <div className="form-group">
-                    <label htmlFor="level">How Bad Was It?</label>
+                    <label htmlFor="level">How Bad Was Hoagie's Day?</label>
                       
                     <Slider value = {value}
                      setValue ={setValue}/> 
                         </div>
-                        </fieldset>
-                        <div className="checkboxes">
-                 <Checkbox
-                    label="End the Day??"
-                    value={reaction.end}
-                    onChange={ 
-                        () => {
-                        const copy = {...reaction} 
-                        copy.end= !reaction.end
-                        update(copy)
-                    } }/></div>
-    
-                <div className="form-group">
-                    <label htmlFor="description">How Was Hoagie's Day?: </label>
-                    <input
-                        required autoFocus
-                        type="text"
-                        className="form-control"
-                        value={reaction.notes}
-                        onChange={ 
-                            (event) => {
-                            const copy = {...reaction} 
-                            copy.notes = event.target.value 
-                            update(copy)
-                        } 
-                    }/>
-                 </div> 
+                        </fieldset>  
+                <div className =  "meds">Did Hoagie Get His Medications?</div>
                  <div className="checkboxes">
                  <Checkbox
                     label="AM Meds?"
@@ -139,7 +152,7 @@ const Checkbox = ({ label, value, onChange }) => {
                         copy.pm = !reaction.pm
                         update(copy)
                     } }/>
-
+                  <div className =  "seizure">Any Seizure Activity?</div>
                     <Checkbox
                     label="Seizure?"
                     value={reaction.seizure}
@@ -149,14 +162,28 @@ const Checkbox = ({ label, value, onChange }) => {
                         copy.seizure = !reaction.seizure
                         update(copy)
                     } }/>
-                    
-                </div>
+                </div> 
+                <div className="form-group">
+                    <label htmlFor="notes">General Health and Behavior Notes: </label>
+                    <input
+                        required autoFocus
+                        type="text"
+                        className="form-control"
+                        value={reaction.notes}
+                        onChange={ 
+                            (event) => {
+                            const copy = {...reaction} 
+                            copy.notes = event.target.value 
+                            update(copy)
+                        } 
+                    }/>
+                 </div> 
         <button
           onClick={(evt) => handleSaveButtonClick(evt)}
           className="btn btn-primary"
         >
           Save
         </button>
-      </form>
+      </form></>
     )
   }

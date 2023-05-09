@@ -1,15 +1,23 @@
-//get all the reactions
+//get 
 export const getReactions = () => {
     return fetch(`http://localhost:8088/reactions`)
     .then(response => response.json())
     }
+    export const getDays= () => {
+        return fetch(`http://localhost:8088/days`)
+        .then(response => response.json())
+        }
+
 // sort
 
 export const reactionsSortedByDate = () => {
-    return fetch(`http://localhost:8088/reactions?_sort=date&_order=asc`)
+    return fetch(`http://localhost:8088/reactions?_sort=date`)
     .then(response => response.json())
 }
-
+export const sortDays = () => {
+    return fetch(`http://localhost:8088/days?_sort=date`)
+    .then(response => response.json())
+}
 
 // Submit a single reaction report to the database
 export const sendReaction= (reactionToAPI) => {
@@ -22,14 +30,15 @@ export const sendReaction= (reactionToAPI) => {
          body: JSON.stringify(reactionToAPI)
       })
  }
- /*export const sendEndDay= (endDayToAPI) => {
-    return fetch(`http://localhost:8088/endDays`
+
+
+export const sendDay= (dayToAPI) => {
+    return fetch(`http://localhost:8088/days`
          , { 
           method: "POST", //adds an object
           headers: {
               "Content-Type": "application/json"
           },
-         body: JSON.stringify(endDayToAPI)
+         body: JSON.stringify(dayToAPI)
       })
  }
-*/
