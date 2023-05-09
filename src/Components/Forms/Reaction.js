@@ -1,30 +1,30 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { sendReaction } from "../ApiManager"
-import {sendDay} from "../ApiManager"
 import Slider from "../Slider/Slider"
 import "./form.css"
-
+import Stack from '@mui/material/Stack';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import Button from '@mui/material/Button';
 
 export const ReactionForm = () => {
 
-    const [value, setValue] = useState(0)
-    const [day, updateDay] = useState({
-    
-        date: "",
+    const [value, setValue] = useState(0) 
+    const [reaction, update] = useState({
+        date: "", 
+        description: "",
         notes: "",
         am: false, 
         pm: false, 
         seizure: false
     })
-    const [reaction, update] = useState({
-        date: "", 
-        description: "",   
-    })
-   const [checked, setChecked ] = useState(false)
+
    
-   
-    const Checkbox = ({ label, value, onChange}) => {
+   const Checkbox = ({ label, value, onChange}) => {
         return (
           <label>
             <input type="checkbox" checked={value} onChange={onChange}/>
@@ -35,6 +35,7 @@ export const ReactionForm = () => {
 const navigate = useNavigate()
     const activeUser = localStorage.getItem("meltdown_user")
     const meltdownUser = JSON.parse(activeUser)//signed in user
+    const theme = createTheme();
 
     const handleSaveButtonClick = (event) => {
         event.preventDefault()
@@ -44,40 +45,60 @@ const navigate = useNavigate()
         userId: meltdownUser.id,
         date: reaction.date,
         description: reaction.description,
-        level: value
+        level: value,
+        notes: reaction.notes,
+        am: reaction.am, 
+        pm: reaction.pm, 
+        seizure: reaction.seizure
    
 
     }
-const dayToAPI = {
-    end: day.end,
-    date: day.date,
-    notes: "",
-    am: day.am, 
-    pm: day.pm, 
-    seizure: day.seizure
-}
-
-
-
  sendReaction(reactionToAPI)
     .then(( )=>  {
         navigate("/history") 
 
    
-})
-if (checked === true){
-sendDay(dayToAPI)
-.then(() => {
-    navigate("/history")
 })}
-    }
 
-    return (
+    return ( <>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+
+        <Box
+          sx={{
+            bgcolor: 'background.paper',
+            pt: 8,
+            pb: 6,
+        
+          }}
+        >
+          <Container maxWidth="lg">
+            <Typography
+              component="h1"
+              variant="h2"
+              align="center"
+              color="text.primary"
+              gutterBottom
+            >
+             How Was Hoagie's Day?
+            </Typography>
+            <Typography variant="h5" align="center" color="text.secondary" paragraph>
+            Record Hoagie's Big Feelings to Better Support His Wellbeing
+            </Typography>
+            <Stack
+              sx={{ pt: 4 }}
+              direction="row"
+              spacing={2}
+              justifyContent="center"
+            >
+            </Stack>
+          </Container>
+        </Box>         
+          </ThemeProvider>    
         <form className="reactionform">
-            <h2 className="title">Record A Reaction</h2>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="Date">Date:</label>
+                    <label htmlFor="Date"><strong>Today's Date: </strong></label>
                     <input
                         required autoFocus
                         type="date"
@@ -94,7 +115,7 @@ sendDay(dayToAPI)
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="description">What Happened?: </label>
+                    <label htmlFor="description"><strong>What Caused Hoagie To Meltdown: </strong> </label>
                     <input
                         required autoFocus
                         type="text"
@@ -109,101 +130,70 @@ sendDay(dayToAPI)
                     }/>
                  </div>
                  </fieldset>
-                 <fieldset>
+                <fieldset>
                 <div className="form-group">
-                    <label htmlFor="level">How Bad Was It?</label>
-                      
+                    <label htmlFor="level"><strong>How Bad Was Hoagie's Day? </strong></label>
+                       
                     <Slider 
                     value = {value}
                      setValue ={setValue}/> 
                         </div>
                         </fieldset>
-            
-            <div className="checkboxes">
-                 <Checkbox
-                    label="End the Day??"
-                    onChange={ 
-                        () => {
-                     setChecked(true)  
-                    } }/>                
-                      </div>
-
-                    {checked ?
-
-           <> <div className="form-group">
-                    <label htmlFor="description">How Was Hoagie's Day?: </label>
-                    <fieldset>
-                <div className="form-group">
-                    <label htmlFor="Date">Date:</label>
-                    <input
-                        required autoFocus
-                        type="date"
-                        className="form-control"
-                        value={day.date}
-                        onChange={ 
-                            (event) => {
-                            const copy = {...day} 
-                            copy.date= event.target.value 
-                            updateDay(copy)
-                        } 
-                    }/>
-                </div>
-            </fieldset>
-                    <input
-                        required autoFocus
-                        type="text"
-                        className="form-control"
-                        value={day.notes}
-                        onChange={ 
-                            (event) => {
-                            const copy = {...day} 
-                            copy.notes = event.target.value 
-                            updateDay(copy)
-                        } 
-                    }/>
-                 </div> 
+     
+                 <div className =  "meds"><strong> Did Hoagie Get His Medications? </strong></div>
                  <div className="checkboxes">
                  <Checkbox
-                    label="AM Meds?"
-                    value={day.am}
+                    label="AM Meds?" 
+                    value={reaction.am}
                     onChange={ 
                         () => {
-                        const copy = {...day} 
-                        copy.am = !day.am
-                        updateDay(copy)
+                        const copy = {...reaction} 
+                        copy.am = !reaction.am
+                        update(copy)
                     } }/>
                     
                     <Checkbox
                     label="PM Meds?"
-                    value={day.pm}
+                    value={reaction.pm}
                     onChange={ 
                         () => {
-                        const copy = {...day} 
-                        copy.pm = !day.pm
-                        updateDay(copy)
-                    } }/>
+                        const copy = {...reaction} 
+                        copy.pm = !reaction.pm
+                        update(copy)
+                    } }/></div>
+                  <div className ="seizure"><strong> Any Seizure Activity? </strong> </div>
+                  <div className="checkboxes">
 
                     <Checkbox
-                    label="Seizure?"
-                    value={day.seizure}
+                    label="Seizure"
+                    value={reaction.seizure}
                     onChange={ 
                         () => {
-                        const copy = {...day} 
-                        copy.seizure = !day.seizure
-                        updateDay(copy)
+                        const copy = {...reaction} 
+                        copy.seizure = !reaction.seizure
+                        update(copy)
                     } }/>
-                    
-                </div> </> : "" 
-                }
-
-            <button 
-            onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
-                className="submit">
-                Submit
-            </button>
-
-   
-
-        </form>
-)
-}
+                </div> 
+                <div className="form-group">
+                    <label htmlFor="notes"><strong> General Health and Behavior Notes: </strong>  </label>
+                    <input
+                        required autoFocus
+                        type="text"
+                        className="form-control"
+                        value={reaction.notes}
+                        onChange={ 
+                            (event) => {
+                            const copy = {...reaction} 
+                            copy.notes = event.target.value 
+                            update(copy)
+                        } 
+                    }/>
+                 </div> 
+                
+             <Button variant="outlined"  onClick={(clickEvent) => handleSaveButtonClick(clickEvent)} >
+              Submit
+             </Button>
+               
+        </form>   
+</>
+    )}

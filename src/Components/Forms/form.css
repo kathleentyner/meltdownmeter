@@ -1,7 +1,13 @@
-.reactionform {
-    background-color: rgb(240, 246, 255);
+input {
+  margin: 10px;
+  font-size: large;
+  
   
   }
+.reactionform {
+  overflow: visible;
+  padding-left: 2em}
+
 
   .reactionList{
     font-size: large;
@@ -20,9 +26,12 @@
 
 
   }
+
   .checkboxes {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+
+ 
   }
 .reactionheader{
     text-align: left;

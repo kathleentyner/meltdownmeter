@@ -3,7 +3,7 @@ import {useState} from "react"
 import "./Slider.css"
 
 const Slider = ({value, setValue}) => {
- 
+
 
     return (
       <ReactSlider
@@ -16,6 +16,7 @@ const Slider = ({value, setValue}) => {
         onChange={setValue}
         min={0}
         max={10}
+        valueLabelDisplay="on"
         marks
         renderMark={(props) => {
             if (props.key < value) {

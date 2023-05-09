@@ -17,133 +17,68 @@
       "date": "2023-05-01",
       "description": "Saw multiple dogs on walk",
       "level": 2,
-      "id": 11
-    },
-    {
-      "userId": 2,
-      "date": "2023-05-01",
-      "description": "nail trim at the vet. vet was unable to trim nails hoagie was too  upset. ",
-      "level": 10,
-      "id": 12
-    },
-    {
-      "userId": 2,
-      "date": "2023-05-02",
-      "description": "screaming in the car on the way to a walk. redirected on Birdie. ",
-      "level": 7,
-      "id": 13
-    },
-    {
-      "userId": 2,
-      "date": "2023-05-02",
-      "description": "saw a dog in the distance. whining and leash pulling ",
-      "level": 2,
-      "id": 14
-    },
-    {
-      "userId": 2,
-      "date": "2023-05-03",
-      "description": "aggitated in the car on the way to a walk. ",
-      "level": 6,
-      "id": 15
+      "notes": "Overall it was a good day. Hoagie was able to recover quickly when he got upset.",
+      "am": true,
+      "pm": true,
+      "seizure": false,
+      "id": 1
     },
     {
       "userId": 2,
       "date": "2023-04-30",
-      "description": "Went to tractor supply and saw his friends. was able to hold a sit but was very vocal. ",
+      "description": "nail trim at the vet. vet was unable to trim nails hoagie was too  upset. ",
+      "level": 10,
+      "notes": "Hoagie received diazepam and trazadone to help him at the vet. He will need full sedation for future procedures.",
+      "am": true,
+      "pm": true,
+      "seizure": true,
+      "id": 2
+    },
+    {
+      "userId": 2,
+      "date": "2023-05-02",
+      "description": "screamed in the car on the way to a walk. redirected on Birdie. Amped up throughout the walk",
+      "level": 7,
+      "notes": "really excitable today. endless energy",
+      "am": false,
+      "pm": true,
+      "seizure": false,
+      "id": 3
+    },
+    {
+      "userId": 2,
+      "date": "2023-05-03",
+      "description": "saw a dog in the distance. whining and leash pulling ",
+      "notes": "Threw-up after breakfast. I think he ate too fast. Back to the slow feeder.",
+      "am": true,
+      "pm": true,
+      "seizure": false,
+      "level": 2,
+      "id": 4
+    },
+
+    {
+      "userId": 2,
+      "date": "2023-04-29",
+      "description": "Went to tractor supply and saw his friends. Was able to hold a sit but was very vocal. ",
       "level": 1,
-      "id": 16
+      "notes": "",
+      "am": true,
+      "pm": true,
+      "seizure": false,
+      "id": 5
     },
     {
       "userId": 2,
       "date": "2023-04-30",
       "description": "UPS delivery. redirected on birdie. took a long time to calm down.",
+      "notes": "agitated on his walk, hypervilgent",
+      "am": true,
+      "pm": true,
+      "seizure": false,
       "level": 8,
-      "id": 17
-    }
-  ],
-  "days": [
-   
-    {
-      "end": true,
-      "date": "",
-      "notes": "",
-      "am": false,
-      "pm": false,
-      "seizure": false,
-      "id": 3
-    },
-    {
-      "end": true,
-      "date": "",
-      "notes": "",
-      "am": true,
-      "pm": true,
-      "seizure": false,
-      "id": 4
-    },
-    {
-      "end": false,
-      "date": "",
-      "notes": "",
-      "am": false,
-      "pm": false,
-      "seizure": false,
-      "id": 5
-    },
-    {
-      "end": true,
-      "date": "2023-05-01",
-      "notes": "",
-      "am": true,
-      "pm": true,
-      "seizure": true,
       "id": 6
-    },
-    {
-      "end": false,
-      "date": "",
-      "notes": "",
-      "am": false,
-      "pm": false,
-      "seizure": false,
-      "id": 7
-    },
-    {
-      "end": true,
-      "date": "2023-05-02",
-      "notes": "",
-      "am": false,
-      "pm": false,
-      "seizure": false,
-      "id": 8
-    },
-    {
-      "end": true,
-      "date": "2023-05-03",
-      "notes": "",
-      "am": true,
-      "pm": true,
-      "seizure": true,
-      "id": 9
-    },
-    {
-      "end": false,
-      "date": "",
-      "notes": "",
-      "am": false,
-      "pm": false,
-      "seizure": false,
-      "id": 10
-    },
-    {
-      "end": false,
-      "date": "2023-04-30",
-      "notes": "",
-      "am": false,
-      "pm": true,
-      "seizure": false,
-      "id": 11
     }
   ]
+  
 }

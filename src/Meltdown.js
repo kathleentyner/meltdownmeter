@@ -5,7 +5,7 @@ import { Login } from './Auth/Login';
 import { NavBar } from './Components/Nav/NavBar';
 import { ApplicationViews } from './Components/Views/ApplicationViews';
 import { Authorized } from './Components/Views/Authorized.js';
-import { SimpleBottomNavigation } from './Components/Nav/BottomNav';
+
 
 export const Meltdown = () => {
 	return <Routes>
@@ -17,7 +17,7 @@ export const Meltdown = () => {
 				<>
           <NavBar/>
           <ApplicationViews/>
-		  <SimpleBottomNavigation/>
+
         </>
 			</Authorized>
 

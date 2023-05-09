@@ -12,7 +12,7 @@ export const NavBar = () => {
             </li> 
 
             <li className="navbar_item">
-                <Link className="navbar_link" to="/reaction">New Reaction</Link>                          
+                <Link className="navbar_link" to="/reaction">Daily Meltdown Report</Link>                          
             </li> 
         
             <li className="navbar_item">
@@ -21,8 +21,8 @@ export const NavBar = () => {
             <li className="navbar_item">
             <Link className="navbar_link" to="/history">History</Link>                          
             </li>
-            <li className="navbar__item navbar__logout">
-                <Link className="navbar__link" to="" onClick={() => {
+            <li className="navbar__logout">
+                <Link className="navbar__logout" to="" onClick={() => {
                     localStorage.removeItem("meltdown_user")
                     navigate("/", {replace: true})
                 }}>Logout</Link>
