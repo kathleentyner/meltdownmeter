@@ -11,7 +11,7 @@ export const getReactions = () => {
 // sort
 
 export const reactionsSortedByDate = () => {
-    return fetch(`http://localhost:8088/reactions?_sort=date`)
+    return fetch(`http://localhost:8088/reactions?_sort=date&_order=desc`)
     .then(response => response.json())
 }
 export const sortDays = () => {

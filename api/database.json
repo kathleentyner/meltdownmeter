@@ -19,7 +19,7 @@
       "level": 2,
       "notes": "Overall it was a good day. Hoagie was able to recover quickly when he got upset.",
       "am": true,
-      "pm": true,
+      "pm": false,
       "seizure": false,
       "id": 1
     },
@@ -56,7 +56,6 @@
       "level": 2,
       "id": 4
     },
-
     {
       "userId": 2,
       "date": "2023-04-29",
@@ -78,7 +77,17 @@
       "seizure": false,
       "level": 8,
       "id": 6
+    },
+    {
+      "userId": 2,
+      "date": "2023-05-10",
+      "description": "4-wheelers running down our road in the evening. So much barking; redirected agression on Birdie. Pantig and pacing during the evening.",
+      "level": 8,
+      "notes": "He was generally amped up today. White noise helped him calm down at bedtime. ",
+      "am": true,
+      "pm": true,
+      "seizure": false,
+      "id": 7
     }
   ]
-  
 }

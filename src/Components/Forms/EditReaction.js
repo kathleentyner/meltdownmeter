@@ -131,10 +131,10 @@ return ( <>
                      setValue ={setValue}/> 
                         </div>
                         </fieldset>  
-                <div className =  "meds">Did Hoagie Get His Medications?</div>
+                        <div className =  "meds"><strong> Did Hoagie Get His Medications? </strong></div>
                  <div className="checkboxes">
                  <Checkbox
-                    label="AM Meds?"
+                    label="AM Meds?" 
                     value={reaction.am}
                     onChange={ 
                         () => {
@@ -151,10 +151,12 @@ return ( <>
                         const copy = {...reaction} 
                         copy.pm = !reaction.pm
                         update(copy)
-                    } }/>
-                  <div className =  "seizure">Any Seizure Activity?</div>
+                    } }/></div>
+                  <div className ="seizure"><strong> Any Seizure Activity? </strong> </div>
+                  <div className="checkboxes">
+
                     <Checkbox
-                    label="Seizure?"
+                    label="Seizure"
                     value={reaction.seizure}
                     onChange={ 
                         () => {
@@ -164,7 +166,7 @@ return ( <>
                     } }/>
                 </div> 
                 <div className="form-group">
-                    <label htmlFor="notes">General Health and Behavior Notes: </label>
+                    <label htmlFor="notes"><strong> General Health and Behavior Notes: </strong>  </label>
                     <input
                         required autoFocus
                         type="text"

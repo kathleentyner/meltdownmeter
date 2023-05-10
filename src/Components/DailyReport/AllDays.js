@@ -112,14 +112,14 @@ return <>
                return   <section className="card" key={reaction.id}>
                 
                   <header>
-                   <h3>Date: <Link to={`/reaction/${reaction.id}/edit`}>{reaction.date}</Link></h3>
+                   <h3>Date: {reaction.date} <Link to={`/reaction/${reaction.id}/edit`}>{reaction.date}</Link></h3> 
                      </header>   
            
                   <div><strong>What Made Hoagie Meltdown Today?:</strong> {reaction.description}</div>
                   <div><strong>Meltdown Level: </strong>{reaction.level}</div>
                   <div><strong> Did Hogie Take His Medications?</strong></div>
-                  <div> <strong>AM Meds?</strong> {reaction.am ? "Yes" : "No"}</div>
-                   <div> <strong>PM Meds?</strong> {reaction.pm ? "Yes" : "No"}</div>
+                  <div> <strong>AM Meds?</strong> {reaction.am ? "✅" : "❌"}</div>
+                   <div> <strong>PM Meds?</strong> {reaction.pm ? "✅" : "❌"}</div>
                   <div> <strong>Did Hoagie Exhibit Any Seizure Activity?</strong> {reaction.seizure ? "Yes" : "No"}</div>
                  <div><strong>General Health and Behavior Notes:</strong>{reaction.notes}</div>
                  <Box
@@ -128,8 +128,7 @@ return <>
                justifyContent="center"
                alignItems="center"
                        >     
-                
-                 <Button variant="outlined" align="center" onClick={() => deleteReaction(reaction.id)} startIcon={<DeleteIcon />}>
+                <Button variant="outlined" align="center" onClick={() => deleteReaction(reaction.id)} startIcon={<DeleteIcon />}>
         Delete
       </Button></Box>
                

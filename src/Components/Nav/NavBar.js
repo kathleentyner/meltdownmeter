@@ -8,7 +8,7 @@ export const NavBar = () => {
      
         <ul className="navbar">
             <li className="navbar_item active">
-                <Link className="navbar_link " to="/Home">Home</Link>                        
+                <Link className="navbar_link " to="/">Home</Link>                        
             </li> 
 
             <li className="navbar_item">
@@ -30,3 +30,4 @@ export const NavBar = () => {
         </ul>
     )
             }
+

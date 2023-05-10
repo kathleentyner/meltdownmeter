@@ -133,10 +133,16 @@ const navigate = useNavigate()
                 <fieldset>
                 <div className="form-group">
                     <label htmlFor="level"><strong>How Bad Was Hoagie's Day? </strong></label>
-                       
+            <Box
+               m={1}
+               display="flex"
+               justifyContent="flex-start"
+               alignItems="left"
+                       >     
                     <Slider 
                     value = {value}
-                     setValue ={setValue}/> 
+                     setValue ={setValue}/></Box>
+            
                         </div>
                         </fieldset>
      
