@@ -138,14 +138,17 @@ const navigate = useNavigate()
                display="flex"
                justifyContent="flex-start"
                alignItems="left"
+               paddingTop={5}
+               paddingBottom={13}
+               paddingLeft={4}
                        >     
                     <Slider 
                     value = {value}
-                     setValue ={setValue}/></Box>
+                     setValue ={setValue}/>  </Box>
+
             
                         </div>
                         </fieldset>
-     
                  <div className =  "meds"><strong> Did Hoagie Get His Medications? </strong></div>
                  <div className="checkboxes">
                  <Checkbox

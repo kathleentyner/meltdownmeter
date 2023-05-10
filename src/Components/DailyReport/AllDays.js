@@ -112,7 +112,7 @@ return <>
                return   <section className="card" key={reaction.id}>
                 
                   <header>
-                   <h3>Date: {reaction.date} <Link to={`/reaction/${reaction.id}/edit`}>{reaction.date}</Link></h3> 
+                   <h3>Date: <Link to={`/reaction/${reaction.id}/edit`}>{reaction.date}</Link></h3> 
                      </header>   
            
                   <div><strong>What Made Hoagie Meltdown Today?:</strong> {reaction.description}</div>
@@ -121,7 +121,7 @@ return <>
                   <div> <strong>AM Meds?</strong> {reaction.am ? "✅" : "❌"}</div>
                    <div> <strong>PM Meds?</strong> {reaction.pm ? "✅" : "❌"}</div>
                   <div> <strong>Did Hoagie Exhibit Any Seizure Activity?</strong> {reaction.seizure ? "Yes" : "No"}</div>
-                 <div><strong>General Health and Behavior Notes:</strong>{reaction.notes}</div>
+                 <div><strong>General Health and Behavior Notes:</strong> {reaction.notes}</div>
                  <Box
                m={1}
                display="flex"

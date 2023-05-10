@@ -34,7 +34,7 @@ export const EditReaction = () => {
     })
         .then(response => response.json())
         .then(() => {
-            navigate("/") //sends user back to ? need to determine
+            navigate("/history") //sends user back to ? need to determine
         })
         
 }
@@ -84,7 +84,7 @@ return ( <>
         </Container>
       </Box>         
         </ThemeProvider>    
-      <form className="reactionedit">
+      <form className="reactionform">
         <h2 className="edittitle">Edit Reaction</h2>
         <fieldset>
                 <div className="form-group">
@@ -126,11 +126,23 @@ return ( <>
         <fieldset>
                 <div className="form-group">
                     <label htmlFor="level">How Bad Was Hoagie's Day?</label>
-                      
-                    <Slider value = {value}
-                     setValue ={setValue}/> 
+                    <Box
+               m={1}
+               display="flex"
+               justifyContent="flex-start"
+               alignItems="left"
+               paddingTop={5}
+               paddingBottom={13}
+               paddingLeft={4}
+                       >     
+                    <Slider 
+                    value = {value}
+                     setValue ={setValue}/>  </Box>
+
+            
                         </div>
-                        </fieldset>  
+                        </fieldset>
+      
                         <div className =  "meds"><strong> Did Hoagie Get His Medications? </strong></div>
                  <div className="checkboxes">
                  <Checkbox

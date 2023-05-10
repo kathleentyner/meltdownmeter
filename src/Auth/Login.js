@@ -2,6 +2,13 @@ import React, { useState } from "react"
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom"
 import "./Login.css"
+import Stack from '@mui/material/Stack';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+
 
 export const Login = () => {
     const [email, set] = useState("hoagie@dog.com")
@@ -26,12 +33,38 @@ export const Login = () => {
                 }
             })
     }
+    const theme = createTheme();
 
-    return (
+    return <>
+    <ThemeProvider theme={theme}>
+        <CssBaseline />
+      
+          {/* Hero unit */}
+          <Box
+            sx={{
+              bgcolor: 'background.paper',
+              pt: 8,
+              pb: 6,
+            }}
+          >
+            <Container maxWidth="lg">
+              <Typography
+                component="h1"
+                variant="h2"
+                align="center"
+                color="text.primary"
+                gutterBottom
+              >
+               How Was Hoagie's Day?
+              </Typography>
+              <Typography variant="h5" align="center" color="text.secondary" paragraph>
+              Record Hoagie's Big Feelings to Better Support His Wellbeing
+              </Typography>
+              </Container></Box>
         <main className="container--login">
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Hoagies' Meltdown Meter</h1>
+                    
                     <h2>Please sign in</h2>
                     <fieldset>
                         <label htmlFor="inputEmail"> Email address </label>
@@ -53,5 +86,6 @@ export const Login = () => {
                 <Link to="/register">Don't have an account yet?</Link>
             </section>
         </main>
-    )
+        </ThemeProvider>
+</>
 }

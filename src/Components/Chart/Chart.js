@@ -25,7 +25,7 @@ ChartJS.register(
   export const Chart = () => {
       const [reactions, setReactions] = useState([])
   
-useEffect(
+        useEffect(
           () => {
               reactionsSortedByDate()
               .then((reactionArray) => {

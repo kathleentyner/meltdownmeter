@@ -1,6 +1,18 @@
-import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import "./Login.css"
+import React, { useState } from "react"
+import { Link } from "react-router-dom";
+import "./Login.css"
+import Stack from '@mui/material/Stack';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+
+
+
+
 
 export const Register = (props) => {
     const [user, setUser] = useState({
@@ -8,7 +20,7 @@ export const Register = (props) => {
         username: "",
     })
     let navigate = useNavigate()
-
+    const theme = createTheme();
     const registerNewUser = () => {
         return fetch("http://localhost:8088/users", {
             method: "POST",
@@ -51,10 +63,35 @@ export const Register = (props) => {
         setUser(copy)
     }
 
-    return (
+    return <>
+    <ThemeProvider theme={theme}>
+        <CssBaseline />
+      
+          {/* Hero unit */}
+          <Box
+            sx={{
+              bgcolor: 'background.paper',
+              pt: 8,
+              pb: 6,
+            }}
+          >
+            <Container maxWidth="lg">
+              <Typography
+                component="h1"
+                variant="h2"
+                align="center"
+                color="text.primary"
+                gutterBottom
+              >
+               How Was Hoagie's Day?
+              </Typography>
+              <Typography variant="h5" align="center" color="text.secondary" paragraph>
+              Register to Record Hoagie's Big Feelings
+              </Typography>
+              </Container></Box>
         <main style={{ textAlign: "center" }}>
             <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Sign-up for Hoagie's Meltdown Meter</h1>
+        
                 <fieldset>
                     <label htmlFor="username"> User Name </label>
                     <input onChange={updateUser}
@@ -73,5 +110,6 @@ export const Register = (props) => {
                 </fieldset>
             </form>
         </main>
-    )
+    </ThemeProvider> </>
+    
 }

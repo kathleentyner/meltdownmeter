@@ -9,6 +9,11 @@
       "email": "hoagie@dog.com",
       "username": "Hoagie Dog",
       "id": 2
+    },
+    {
+      "email": "kathleentynerjohnson@gmail.com",
+      "username": "ktyner",
+      "id": 3
     }
   ],
   "reactions": [
@@ -88,6 +93,17 @@
       "pm": true,
       "seizure": false,
       "id": 7
+    },
+    {
+      "userId": 2,
+      "date": "2023-05-09",
+      "description": "Dustin Mowed the lawn",
+      "level": 3,
+      "notes": "Much calmer than yesterday",
+      "am": true,
+      "pm": false,
+      "seizure": false,
+      "id": 8
     }
   ]
 }
