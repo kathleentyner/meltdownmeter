@@ -13,10 +13,14 @@ fieldset {
     display: inline-block;
     margin: 0 auto;
     text-align: left;
+    align-items: center;
+    padding-top: 9em;
+    padding-left: 5em;
 }
 
 .form--login > fieldset > input[type="email"] {
     width: 25em;
+    
 }
 
 .label--login {
@@ -53,6 +57,8 @@ fieldset {
     background-color: hsla(0,0%,100%,0.40);
     background-blend-mode: overlay;
     background-repeat: no-repeat;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    align-items: center;
 }
 
 .button--close {

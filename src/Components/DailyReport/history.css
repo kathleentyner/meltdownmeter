@@ -57,13 +57,14 @@
   .cards {
     display: flex;
     flex-wrap: wrap;
+    padding-bottom: 3em;
  }
  
 .card {
-    flex: 1 0 500px;
+    flex: 1 0 600px;
     box-sizing: border-box;
     margin: 1rem .25em;
-    padding-left: 2em;
+    padding: 5em
 }
 @media screen and (min-width: 40em) {
   .card {

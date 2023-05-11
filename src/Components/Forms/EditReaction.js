@@ -8,6 +8,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Button from '@mui/material/Button';
 
 export const EditReaction = () => {
    const [value, setValue] = useState()
@@ -34,7 +35,7 @@ export const EditReaction = () => {
     })
         .then(response => response.json())
         .then(() => {
-            navigate("/") //sends user back to ? need to determine
+            navigate("/history") //sends user back to ? need to determine
         })
         
 }
@@ -54,13 +55,13 @@ return ( <>
   <ThemeProvider theme={theme}>
     <CssBaseline />
 
-      <Box
-        sx={{
-          bgcolor: 'background.paper',
-          pt: 8,
-          pb: 6,
-        }}
-      >
+    <Box
+          sx={{
+            bgcolor: '#d7e4fc',
+            pt: 8,
+            pb: 6,
+          }}
+        >
         <Container maxWidth="lg">
           <Typography
             component="h1"
@@ -84,11 +85,11 @@ return ( <>
         </Container>
       </Box>         
         </ThemeProvider>    
-      <form className="reactionedit">
+      <form className="reactionform">
         <h2 className="edittitle">Edit Reaction</h2>
         <fieldset>
                 <div className="form-group">
-                    <label htmlFor="date">Date: </label><div>
+                    <label htmlFor="date"><strong>Date:</strong> </label><div>
                     <input
                         required autoFocus
                         type="date"
@@ -104,10 +105,27 @@ return ( <>
                  </div>
                 </div>
             </fieldset>    
-        
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="description"><strong> Upload a photo of Hoagie's Day: </strong> </label>
+                    <input
+                        required autoFocus
+                        type="text"
+                        className="form-control"
+                        value={reaction.img}
+                        onChange={ 
+                            (event) => {
+                            const copy = {...reaction} 
+                            copy.img = event.target.value 
+                            update(copy)
+                        } 
+                    }/>
+                 </div>
+                 </fieldset>
+            
         <fieldset>
           <div className="form-group">
-            <label htmlFor="description">What Caused Hoagie To Meltdown: </label>
+            <label htmlFor="description"><strong>What Caused Hoagie To Meltdown: </strong> </label>
             <input
               required
               autoFocus
@@ -125,16 +143,28 @@ return ( <>
        
         <fieldset>
                 <div className="form-group">
-                    <label htmlFor="level">How Bad Was Hoagie's Day?</label>
-                      
-                    <Slider value = {value}
-                     setValue ={setValue}/> 
+                    <label htmlFor="level"><strong>How Bad Was Hoagie's Day? </strong></label>
+                    <Box
+               m={1}
+               display="flex"
+               justifyContent="flex-start"
+               alignItems="left"
+               paddingTop={5}
+               paddingBottom={13}
+               paddingLeft={4}
+                       >     
+                    <Slider 
+                    value = {value}
+                     setValue ={setValue}/>  </Box>
+
+            
                         </div>
-                        </fieldset>  
-                <div className =  "meds">Did Hoagie Get His Medications?</div>
+                        </fieldset>
+      
+                        <div className =  "meds"><strong> Did Hoagie Get His Medications? </strong></div>
                  <div className="checkboxes">
                  <Checkbox
-                    label="AM Meds?"
+                    label="AM Meds?" 
                     value={reaction.am}
                     onChange={ 
                         () => {
@@ -151,10 +181,12 @@ return ( <>
                         const copy = {...reaction} 
                         copy.pm = !reaction.pm
                         update(copy)
-                    } }/>
-                  <div className =  "seizure">Any Seizure Activity?</div>
+                    } }/></div>
+                  <div className ="seizure"><strong> Any Seizure Activity? </strong> </div>
+                  <div className="checkboxes">
+
                     <Checkbox
-                    label="Seizure?"
+                    label="Seizure"
                     value={reaction.seizure}
                     onChange={ 
                         () => {
@@ -164,7 +196,7 @@ return ( <>
                     } }/>
                 </div> 
                 <div className="form-group">
-                    <label htmlFor="notes">General Health and Behavior Notes: </label>
+                    <label htmlFor="notes"><strong> General Health and Behavior Notes: </strong>  </label>
                     <input
                         required autoFocus
                         type="text"
@@ -178,12 +210,10 @@ return ( <>
                         } 
                     }/>
                  </div> 
-        <button
-          onClick={(evt) => handleSaveButtonClick(evt)}
-          className="btn btn-primary"
-        >
-          Save
-        </button>
+                 <Button variant="outlined"  onClick={(clickEvent) => handleSaveButtonClick(clickEvent)} >
+              Submit
+             </Button>
+     
       </form></>
     )
   }

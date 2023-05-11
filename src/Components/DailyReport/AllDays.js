@@ -11,7 +11,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
+import CardMedia from '@mui/material/CardMedia';
 
 
 //list out all the reaction entries
@@ -55,13 +55,12 @@ return <>
         {/* Hero unit */}
         <Box
           sx={{
-            bgcolor: 'background.paper',
+            bgcolor: '#d7e4fc',
             pt: 8,
             pb: 6,
-      
-}}
-         
+          }}
         >
+      
           <Container maxWidth="lg">
             <Typography
               component="h1"
@@ -102,36 +101,57 @@ return <>
         '& > :not(style)': {
           m: 1,
           width: 300,
-          height: 400,
+          height: 800,
+          paddingBottom: 20
         },
       }}
     >
-
      { reactions.map(
             (reaction) => {
                return   <section className="card" key={reaction.id}>
                 
                   <header>
-                   <h3>Date: <Link to={`/reaction/${reaction.id}/edit`}>{reaction.date}</Link></h3>
-                     </header>   
-           
+                   <h3>Date: {reaction.date}</h3> 
+                     </header>  
+                     <CardMedia
+                        component="img"
+                        height="300"
+                        width="300"
+                        image={reaction.img}
+                        
+                        alt="Hoagie Dog"
+                     />
+
+                
                   <div><strong>What Made Hoagie Meltdown Today?:</strong> {reaction.description}</div>
                   <div><strong>Meltdown Level: </strong>{reaction.level}</div>
                   <div><strong> Did Hogie Take His Medications?</strong></div>
-                  <div> <strong>AM Meds?</strong> {reaction.am ? "Yes" : "No"}</div>
-                   <div> <strong>PM Meds?</strong> {reaction.pm ? "Yes" : "No"}</div>
-                  <div> <strong>Did Hoagie Exhibit Any Seizure Activity?</strong> {reaction.seizure ? "Yes" : "No"}</div>
-                 <div><strong>General Health and Behavior Notes:</strong>{reaction.notes}</div>
+                  <div> <strong>AM Meds?</strong> {reaction.am ? "✅" : "❌"}</div>
+                   <div> <strong>PM Meds?</strong> {reaction.pm ? "✅" : "❌"}</div>
+                  <div> <strong>Did Hoagie Exhibit Any Seizure Activity?</strong> {reaction.seizure ? "🚩" : "No"}</div>
+                 <div><strong>General Health and Behavior Notes:</strong> {reaction.notes}</div>
                  <Box
                m={1}
                display="flex"
                justifyContent="center"
                alignItems="center"
-                       >     
-                
-                 <Button variant="outlined" align="center" onClick={() => deleteReaction(reaction.id)} startIcon={<DeleteIcon />}>
+               paddingBottom={20}
+                       >   
+               <Stack
+              sx={{ pt: 4 }}
+              direction="row"
+              spacing={2}
+              justifyContent="center"
+            >
+            <Button variant="contained" padding={1} align="center" href={`/reaction/${reaction.id}/edit`}>
+        Edit
+      </Button>      
+                <Button variant="outlined" align="center" padding={1} onClick={() => deleteReaction(reaction.id)} startIcon={<DeleteIcon />}>
         Delete
-      </Button></Box>
+      </Button>
+      </Stack>
+      
+      </Box>
                
                 </section>
         

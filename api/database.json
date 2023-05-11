@@ -9,12 +9,23 @@
       "email": "hoagie@dog.com",
       "username": "Hoagie Dog",
       "id": 2
+    },
+    {
+      "email": "kathleentynerjohnson@gmail.com",
+      "username": "ktyner",
+      "id": 3
+    },
+    {
+      "email": "dilly@cat.com",
+      "username": "Dilly",
+      "id": 4
     }
   ],
   "reactions": [
     {
       "userId": 2,
       "date": "2023-05-01",
+      "img": "https://i.ibb.co/sF1qv1f/porch.jpg",
       "description": "Saw multiple dogs on walk",
       "level": 2,
       "notes": "Overall it was a good day. Hoagie was able to recover quickly when he got upset.",
@@ -26,9 +37,10 @@
     {
       "userId": 2,
       "date": "2023-04-30",
+      "img": "https://i.ibb.co/T8NZgJj/sleeping.jpg",
       "description": "nail trim at the vet. vet was unable to trim nails hoagie was too  upset. ",
       "level": 10,
-      "notes": "Hoagie received diazepam and trazadone to help him at the vet. He will need full sedation for future procedures.",
+      "notes": "Hoagie received diazepam and trazadone to help him at the vet. He will need full sedation for future procedures. At 9pm he started panting and pacing, soon after he had a focal seizure. He was up with post-ictal blindness until mid-night.",
       "am": true,
       "pm": true,
       "seizure": true,
@@ -37,9 +49,10 @@
     {
       "userId": 2,
       "date": "2023-05-02",
+      "img": "https://i.ibb.co/h8xVgv8/chaos.jpg",
       "description": "screamed in the car on the way to a walk. redirected on Birdie. Amped up throughout the walk",
       "level": 7,
-      "notes": "really excitable today. endless energy",
+      "notes": "really excitable today - obsessive destruction endless energy",
       "am": false,
       "pm": true,
       "seizure": false,
@@ -48,6 +61,7 @@
     {
       "userId": 2,
       "date": "2023-05-03",
+      "img": "https://i.ibb.co/VvhkBmK/rock.jpg",
       "description": "saw a dog in the distance. whining and leash pulling ",
       "notes": "Threw-up after breakfast. I think he ate too fast. Back to the slow feeder.",
       "am": true,
@@ -56,13 +70,13 @@
       "level": 2,
       "id": 4
     },
-
     {
       "userId": 2,
       "date": "2023-04-29",
-      "description": "Went to tractor supply and saw his friends. Was able to hold a sit but was very vocal. ",
+      "img": "https://i.ibb.co/QJ4mcXM/creek.jpg",
+      "description": "Played in the creek. Very happy!",
       "level": 1,
-      "notes": "",
+      "notes": "Calm energy. Good day.",
       "am": true,
       "pm": true,
       "seizure": false,
@@ -71,6 +85,7 @@
     {
       "userId": 2,
       "date": "2023-04-30",
+      "img": "https://i.ibb.co/ZfH3Xb1/door.jpg",
       "description": "UPS delivery. redirected on birdie. took a long time to calm down.",
       "notes": "agitated on his walk, hypervilgent",
       "am": true,
@@ -78,7 +93,42 @@
       "seizure": false,
       "level": 8,
       "id": 6
+    },
+    {
+      "userId": 2,
+      "date": "2023-05-10",
+      "img": "https://i.ibb.co/tQ5FqNM/lounging.jpg",
+      "description": "4-wheelers running down our road in the evening. So much barking; redirected agression on Birdie. Pantig and pacing during the evening.",
+      "level": 8,
+      "notes": "He was generally amped up today. White noise helped him calm down at bedtime. ",
+      "am": true,
+      "pm": true,
+      "seizure": false,
+      "id": 7
+    },
+    {
+      "userId": 2,
+      "date": "2023-05-09",
+      "img": "https://i.ibb.co/2ZQnTtC/feather.jpg",
+      "description": "Dustin Mowed the lawn",
+      "level": 3,
+      "notes": "Much calmer than yesterday",
+      "am": true,
+      "pm": false,
+      "seizure": false,
+      "id": 8
+    },
+    {
+      "userId": 2,
+      "date": "2023-05-11",
+      "img": "https://i.ibb.co/0mxbc22/278731081-10101321214772297-258242502218797998-n-1.jpg",
+      "description": "We were in the car too long on the way to hiking. Very vocal. ",
+      "level": 2,
+      "notes": "Very hungry today. ",
+      "am": false,
+      "pm": true,
+      "seizure": false,
+      "id": 9
     }
   ]
-  
 }
