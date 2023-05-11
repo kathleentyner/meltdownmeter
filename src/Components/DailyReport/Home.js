@@ -28,7 +28,7 @@ export const Home = () => {
         {/* Hero unit */}
         <Box
           sx={{
-            bgcolor: 'background.paper',
+            bgcolor: '#d7e4fc',
             pt: 8,
             pb: 6,
           }}

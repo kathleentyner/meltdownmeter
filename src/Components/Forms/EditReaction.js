@@ -8,6 +8,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Button from '@mui/material/Button';
 
 export const EditReaction = () => {
    const [value, setValue] = useState()
@@ -54,13 +55,13 @@ return ( <>
   <ThemeProvider theme={theme}>
     <CssBaseline />
 
-      <Box
-        sx={{
-          bgcolor: 'background.paper',
-          pt: 8,
-          pb: 6,
-        }}
-      >
+    <Box
+          sx={{
+            bgcolor: '#d7e4fc',
+            pt: 8,
+            pb: 6,
+          }}
+        >
         <Container maxWidth="lg">
           <Typography
             component="h1"
@@ -88,7 +89,7 @@ return ( <>
         <h2 className="edittitle">Edit Reaction</h2>
         <fieldset>
                 <div className="form-group">
-                    <label htmlFor="date">Date: </label><div>
+                    <label htmlFor="date"><strong>Date:</strong> </label><div>
                     <input
                         required autoFocus
                         type="date"
@@ -104,10 +105,27 @@ return ( <>
                  </div>
                 </div>
             </fieldset>    
-        
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="description"><strong> Upload a photo of Hoagie's Day: </strong> </label>
+                    <input
+                        required autoFocus
+                        type="text"
+                        className="form-control"
+                        value={reaction.img}
+                        onChange={ 
+                            (event) => {
+                            const copy = {...reaction} 
+                            copy.img = event.target.value 
+                            update(copy)
+                        } 
+                    }/>
+                 </div>
+                 </fieldset>
+            
         <fieldset>
           <div className="form-group">
-            <label htmlFor="description">What Caused Hoagie To Meltdown: </label>
+            <label htmlFor="description"><strong>What Caused Hoagie To Meltdown: </strong> </label>
             <input
               required
               autoFocus
@@ -125,7 +143,7 @@ return ( <>
        
         <fieldset>
                 <div className="form-group">
-                    <label htmlFor="level">How Bad Was Hoagie's Day?</label>
+                    <label htmlFor="level"><strong>How Bad Was Hoagie's Day? </strong></label>
                     <Box
                m={1}
                display="flex"
@@ -192,12 +210,10 @@ return ( <>
                         } 
                     }/>
                  </div> 
-        <button
-          onClick={(evt) => handleSaveButtonClick(evt)}
-          className="btn btn-primary"
-        >
-          Save
-        </button>
+                 <Button variant="outlined"  onClick={(clickEvent) => handleSaveButtonClick(clickEvent)} >
+              Submit
+             </Button>
+     
       </form></>
     )
   }

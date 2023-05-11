@@ -16,6 +16,7 @@ export const ReactionForm = () => {
     const [value, setValue] = useState(0) 
     const [reaction, update] = useState({
         date: "", 
+        img: "",
         description: "",
         notes: "",
         am: false, 
@@ -44,6 +45,7 @@ const navigate = useNavigate()
        //primary key, id, is set by server
         userId: meltdownUser.id,
         date: reaction.date,
+        img: reaction.img,
         description: reaction.description,
         level: value,
         notes: reaction.notes,
@@ -65,13 +67,12 @@ const navigate = useNavigate()
       <CssBaseline />
 
         <Box
-          sx={{
-            bgcolor: 'background.paper',
-            pt: 8,
-            pb: 6,
-        
-          }}
-        >
+      sx={{
+        bgcolor: '#d7e4fc',
+        pt: 8,
+        pb: 6,
+      }}
+    >
           <Container maxWidth="lg">
             <Typography
               component="h1"
@@ -113,6 +114,25 @@ const navigate = useNavigate()
                     }/>
                 </div>
             </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="description"><strong> Upload a photo of Hoagie's Day: </strong> </label>
+                    <input
+                        required autoFocus
+                        type="text"
+                        className="form-control"
+                        value={reaction.img}
+                        onChange={ 
+                            (event) => {
+                            const copy = {...reaction} 
+                            copy.img = event.target.value 
+                            update(copy)
+                        } 
+                    }/>
+                 </div>
+                 </fieldset>
+            
+            
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="description"><strong>What Caused Hoagie To Meltdown: </strong> </label>

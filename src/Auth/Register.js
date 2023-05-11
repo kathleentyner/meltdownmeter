@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
+import Button from '@mui/material/Button';
 
 
 
@@ -69,12 +70,13 @@ export const Register = (props) => {
       
           {/* Hero unit */}
           <Box
-            sx={{
-              bgcolor: 'background.paper',
-              pt: 8,
-              pb: 6,
-            }}
-          >
+          sx={{
+            bgcolor: '#d7e4fc',
+            pt: 8,
+            pb: 6,
+          }}
+        >
+    
             <Container maxWidth="lg">
               <Typography
                 component="h1"
@@ -91,7 +93,7 @@ export const Register = (props) => {
               </Container></Box>
         <main style={{ textAlign: "center" }}>
             <form className="form--login" onSubmit={handleRegister}>
-        
+            <h2>Sign-Up Below</h2>
                 <fieldset>
                     <label htmlFor="username"> User Name </label>
                     <input onChange={updateUser}
@@ -106,8 +108,10 @@ export const Register = (props) => {
                 </fieldset>
                 
                 <fieldset>
-                    <button type="submit"> Register </button>
-                </fieldset>
+                <Button varient='contained' align='center' type="submit">
+                            Submit
+                        </Button>                
+                        </fieldset>
             </form>
         </main>
     </ThemeProvider> </>

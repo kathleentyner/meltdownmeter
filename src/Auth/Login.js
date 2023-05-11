@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom"
 import "./Login.css"
-import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
@@ -41,12 +41,12 @@ export const Login = () => {
       
           {/* Hero unit */}
           <Box
-            sx={{
-              bgcolor: 'background.paper',
-              pt: 8,
-              pb: 6,
-            }}
-          >
+          sx={{
+            bgcolor: '#d7e4fc',
+            pt: 8,
+            pb: 6,
+          }}
+        >
             <Container maxWidth="lg">
               <Typography
                 component="h1"
@@ -65,7 +65,7 @@ export const Login = () => {
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
                     
-                    <h2>Please sign in</h2>
+                    <h2>Please Sign In</h2>
                     <fieldset>
                         <label htmlFor="inputEmail"> Email address </label>
                         <input type="email"
@@ -76,9 +76,9 @@ export const Login = () => {
                             required autoFocus />
                     </fieldset>
                     <fieldset>
-                        <button type="submit">
+                        <Button varient='contained' align='center' type="submit">
                             Sign in
-                        </button>
+                        </Button>
                     </fieldset>
                 </form>
             </section>

@@ -98,15 +98,13 @@ export const Trends = () => {
           <CssBaseline />
         
     
-            <Box
-              sx={{
-                bgcolor: 'background.paper',
-                pt: 8,
-                pb: 6,
-          
-    }}
-             
-            >
+          <Box
+          sx={{
+            bgcolor: '#d7e4fc',
+            pt: 8,
+            pb: 6,
+          }}
+        >
               <Container maxWidth="lg">
                 <Typography
                   component="h1"
